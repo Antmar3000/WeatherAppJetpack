@@ -47,6 +47,7 @@ class WeatherViewModel @Inject constructor(
     fun getLocation() {
         viewModelScope.launch {
             locationTracker.getCurrentLocation()?.let {location ->
+
                 locationState.value = LocationData(location.latitude, location.longitude)
             }
         }
